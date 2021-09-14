@@ -23,16 +23,15 @@ const showProducts = (products) => {
     if (rating) {
       for (let i = rating; i >= 1; i--) {
         //filled star
-        output.push(`<i class="fas fa-star" aria-hidden="true" style="color: blue;"></i>&nbsp;`)
+        output.push(`<i class="fas fa-star text-warning" aria-hidden="true"></i>&nbsp;`)
         // If there is a half a star, append it
         if (i == 1.5) {
-          output.push(`<i class="fa fa-star-half-alt" aria-hidden="true" style="color: gold;"></i>&nbsp;`)
+          output.push(`<i class="fa fa-star-half-alt text-warning" aria-hidden="true"></i>&nbsp;`)
         }
       }
-
       // display empty star
       for (i = (5 - rating); i >= 1; i--) {
-        output.push('<i class="far fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;')
+        output.push('<i class="far fa-star text-warning" aria-hidden="true"></i>&nbsp;')
       }
     }
     //display all products using innerhtml
@@ -43,11 +42,11 @@ const showProducts = (products) => {
             </div>
             <h3>${product.title}</h3>
             <p>Category: ${product.category}</p>
-            <p><span class="stars" id='stars'>${output.join('')}</span><span class="fw-bolder">(${product.rating.rate})</span></p>
-            <p><span class="fas fa-user"></span> ${product.rating.count} Total</p>
             <h2>Price: $ ${product.price}</h2>
-            <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now">add to cart</button>
-            <button id="details-btn" class="details-btn">Details</button>
+            <p><span class="stars" id='stars'>${output.join('')}</span><span class="fw-bolder">(${product.rating.rate})</span></p>
+            <p><span>Total Rating: </span> ${product.rating.count}</p>
+            <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now">Add to cart</button>
+            <button id="details-btn" onclick="loadModal(${product.id})" class="details-btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
         </div>  
     `;
 
@@ -111,3 +110,28 @@ const updateTotal = () => {
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 
+const loadModal = id => {
+  const url = `https://fakestoreapi.com/products/${id}`;
+  fetch(url)
+    .then(res => res.json())
+    .then(data => setModalData(data))
+}
+
+const setModalData = data => {
+  console.log(data)
+  const div = document.getElementById('single-product-data');
+  div.innerHTML = `
+    <div class="card">
+      <div class="text-center">
+          <img src="${data.image}" class="card-img-top modal-product-image" alt="...">
+      </div>
+      <div class="card-body">
+          <h3 class="card-title">${data.title}</h3>
+          <h5 class="card-title">Category: ${data.category}</h5>
+          <p class="card-text">Description: ${data.description.slice(0, 200)}</p>
+          <h3 class="card-text">Price: $${data.price}</h1>
+          <p class="card-text"><span class="fas fa-star text-warning"></span> ${data.rating.rate}&nbsp;&nbsp;&nbsp;&nbsp;<span class="fas fa-user text-info"></span> ${data.rating.count}</p>
+      </div>
+    </div>
+  `;
+}

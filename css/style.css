@@ -65,38 +65,35 @@ body {
   height: 150px;
 }
 /* buy now button design */
-.buy-now {background-image: linear-gradient(to right, #1e3c72 0%, #2a5298  51%, #1e3c72  100%)}
+.buy-now {background-image: linear-gradient(to right, #566606 10%, #7B920A  51%, #d2e960  100%)}
 .buy-now {
    padding: 5px 10px;
-   text-align: center;
    transition: 0.5s;
    background-size: 200% auto;
-   color: white;            
-   box-shadow: 0 0 20px #eee;
+   color: #FFFFFF;    
    border-radius: 10px;
  }
 
  .buy-now:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
+   /* change the direction of the change here */
+   background-position: right center; 
+   color: #ffff;
    text-decoration: none;
  }
 
  /* details button design */
- .details-btn {background-image: linear-gradient(to right, #e43a15 0%, #e65245  51%, #e43a15  100%)}
+ .details-btn {background-image: linear-gradient(to right, #e41531 0%, #e65245  51%, #e41515  100%)}
  .details-btn {
     padding: 5px 10px;
-    text-align: center;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;            
-    box-shadow: 0 0 20px #eee;
+    color: white;    
     border-radius: 10px;
   }
-
+  /* change the direction of the change here */
   .details-btn:hover {
-    background-position: right center; /* change the direction of the change here */
-    color: #fff;
+    background-position: right center; 
+    color: #ffff;
     text-decoration: none;
   }
  
@@ -113,6 +110,12 @@ body {
 .cart-main {
   padding-right: 30px;
 }
+/* modal product image */
+.modal-product-image{
+  width: 130px;
+  height: 150px;
+}
+
 /* responsive part */
 @media only screen and (max-width: 768px) {
   #all-products {
@@ -132,6 +135,7 @@ body {
     padding-right: 10px;
   }
 }
+
 @media only screen and (max-width: 468px) {
   #all-products {
     display: grid;
