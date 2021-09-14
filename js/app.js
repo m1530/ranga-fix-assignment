@@ -118,7 +118,7 @@ const getProductDetails = id => {
 }
 //display product in modal card
 const setProductDetails = data => {
-  console.log(data)
+  //console.log(data)
   const div = document.getElementById('single-product-data');
   div.innerHTML = `
     <div class="row">
