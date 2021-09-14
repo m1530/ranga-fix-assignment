@@ -72,6 +72,7 @@ body {
    background-size: 200% auto;
    color: #FFFFFF;    
    border-radius: 10px;
+   font-weight: 500; 
  }
 
  .buy-now:hover {
@@ -89,6 +90,7 @@ body {
     background-size: 200% auto;
     color: white;    
     border-radius: 10px;
+    font-weight: 500; 
   }
   /* change the direction of the change here */
   .details-btn:hover {
