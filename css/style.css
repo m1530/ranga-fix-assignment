@@ -110,12 +110,6 @@ body {
 .cart-main {
   padding-right: 30px;
 }
-/* modal product image */
-.modal-product-image{
-  width: 130px;
-  height: 150px;
-}
-
 /* responsive part */
 @media only screen and (max-width: 768px) {
   #all-products {

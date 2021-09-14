@@ -120,17 +120,19 @@ const loadModal = id => {
 const setModalData = data => {
   console.log(data)
   const div = document.getElementById('single-product-data');
+
   div.innerHTML = `
-    <div class="card">
-      <div class="text-center">
-          <img src="${data.image}" class="card-img-top modal-product-image" alt="...">
+    <div class="row">
+      <div class="col-md-4 text-center">
+          <img src="${data.image}" class="card-img-top w-75" alt="...">
       </div>
-      <div class="card-body">
-          <h3 class="card-title">${data.title}</h3>
-          <h5 class="card-title">Category: ${data.category}</h5>
-          <p class="card-text">Description: ${data.description.slice(0, 200)}</p>
-          <h3 class="card-text">Price: $${data.price}</h1>
-          <p class="card-text"><span class="fas fa-star text-warning"></span> ${data.rating.rate}&nbsp;&nbsp;&nbsp;&nbsp;<span class="fas fa-user text-info"></span> ${data.rating.count}</p>
+      <div class="col-md-8">
+          <h1 class="text">${data.title}</h1>
+          <h5>Category: ${data.category}</h5>
+          <p><b>Description:</b> ${data.description.slice(0, 200)}</p>
+          <h3>Price: <span class="text-primary">$${data.price}</span></h3>
+          <p><span class="fas fa-star text-warning"></span> ${data.rating.rate}&nbsp;&nbsp;&nbsp;&nbsp;<span class="fas fa-user text-info"></span> ${data.rating.count}</p>
+          <button onclick="addToCart(${data.id},${data.price})" id="addToCart-btn" class="buy-now">Add to cart</button>
       </div>
     </div>
   `;
