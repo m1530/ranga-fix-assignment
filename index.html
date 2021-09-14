@@ -6,37 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5 star shop</title>
-  <link rel="stylesheet" href="./css/style.css" />
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 
+  <!-- Latest compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/7d545a313a.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="./css/style.css" />
   <!-- google Montserrat  font  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+
 </head>
 
 <body>
   <header></header>
   <main class="main">
-    <div class="search-field">
+    <div class="search">
       <div class="search-box">
-        <input id="input-field" class="search-field" type="text" />
-        <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
-          autocomplete="off" id="search-btn" onclick="loadProducts()">
-          Search
-        </button>
+        <div class="input-group">
+          <input id="input-field" type="search" class="search-field" placeholder="&#xf002; Search here"
+            aria-label="Search" aria-describedby="search-addon" />
+          <button id="search-btn" type="button" class="btn search-button" onclick="loadProducts()">search</button>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-9 col-lg-9 col-sm-7">
-        <div id="all-products" class="">
 
-          <!-- 
-            this heading tag is show error for 1st row show 2 item
-            <h1></h1> 
-          -->
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-9 col-lg-9 col-sm-7">
+        <div id="all-products">
         </div>
       </div>
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
