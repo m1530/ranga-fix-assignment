@@ -45,8 +45,8 @@ const showProducts = (products) => {
             <h2>Price: $ ${product.price}</h2>
             <p><span class="stars" id='stars'>${output.join('')}</span><span class="fw-bolder">(${product.rating.rate})</span></p>
             <p><span>Total Rating: </span> ${product.rating.count}</p>
-            <button onclick="addToCart(${product.price})" id="addToCart-btn" class="buy-now">Add to cart</button>
-            <button id="details-btn" onclick="loadModal(${product.id})" class="details-btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
+            <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now">Add to cart</button>
+            <button id="details-btn" onclick="getProductDetails(${product.id})" class="details-btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
         </div>  
     `;
 
@@ -56,7 +56,7 @@ const showProducts = (products) => {
 };
 //add to cart function
 let count = 0;
-const addToCart = (price) => {
+const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
   updateTaxAndCharge();
@@ -109,18 +109,17 @@ const updateTotal = () => {
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
-// fetch single product 
-const loadModal = id => {
+//fetch single product from url
+const getProductDetails = id => {
   const url = `https://fakestoreapi.com/products/${id}`;
   fetch(url)
     .then(res => res.json())
-    .then(data => setModalData(data))
+    .then(data => setProductDetails(data))
 }
-
-const setModalData = data => {
+//display product in modal card
+const setProductDetails = data => {
   console.log(data)
   const div = document.getElementById('single-product-data');
-  //display product in modal
   div.innerHTML = `
     <div class="row">
       <div class="col-md-4 text-center">
